@@ -12,7 +12,8 @@
       "@storage/*": ["./src/storage/*"],
       "@theme/*": ["./src/theme/*"],
       "@utils/*": ["./src/utils/*"],
-      "@themes/*": ["./src/themes/*" ]
+      "@themes/*": ["./src/themes/*" ],
+      "@dtos/*": ["./src/dtos/*" ]
     }
   }
 }
