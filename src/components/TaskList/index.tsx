@@ -1,14 +1,12 @@
 import * as S from './styles'
 
-import { TaskDTO } from '@dtos/TaskDTO'
 import { TaskCard } from '@components/TaskCard'
 import { EmptyTaskCard } from '@components/EmptyTaskCard'
+import { useTask } from '@hooks/useTask'
 
-interface TastListProps {
-  tasks: TaskDTO[]
-}
+export function TastList() {
+  const { tasks } = useTask()
 
-export function TastList({ tasks }: TastListProps) {
   return (
     <S.TaskListContainer>
       {tasks.length > 0 ? (

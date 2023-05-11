@@ -15,6 +15,11 @@ export const TaskCardContainer = styled.View`
   gap: 8px;
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_500};
+
+  border-width: 1px;
+  border-color: ${({ theme }) => theme.COLORS.GRAY_400};
+
+  margin-bottom: 8px;
 `
 
 export const Addons = styled.View`

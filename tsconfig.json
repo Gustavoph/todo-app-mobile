@@ -13,7 +13,9 @@
       "@theme/*": ["./src/theme/*"],
       "@utils/*": ["./src/utils/*"],
       "@themes/*": ["./src/themes/*" ],
-      "@dtos/*": ["./src/dtos/*" ]
+      "@dtos/*": ["./src/dtos/*" ],
+      "@hooks/*": ["./src/hooks/*" ],
+      "@contexts/*": ["./src/contexts/*" ]
     }
   }
 }

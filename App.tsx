@@ -8,6 +8,7 @@ import {
 
 import { Home } from '@screens/Home'
 import defaultTheme from '@themes/default'
+import { TaskProvider } from '@contexts/TaskContext'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,7 +27,9 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Home />
+      <TaskProvider>
+        <Home />
+      </TaskProvider>
     </ThemeProvider>
   )
 }

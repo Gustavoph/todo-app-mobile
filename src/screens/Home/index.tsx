@@ -7,8 +7,24 @@ import { Input } from '@components/Input'
 import { Button } from '@components/Button'
 import { Counter } from '@components/Counter'
 import { TastList } from '@components/TaskList'
+import { useTask } from '@hooks/useTask'
+import { useState } from 'react'
 
 export function Home() {
+  const { addTask, tasks } = useTask()
+
+  const [description, setDescription] = useState('')
+
+  function handleAddTask() {
+    if (description.length > 0) {
+      addTask(description)
+      setDescription('')
+    }
+  }
+
+  const totalTasks = tasks.length
+  const totalConcludedTasks = tasks.filter((task) => task.isConcluded).length
+
   return (
     <S.HomeContainer>
       <S.HomeHeader>
@@ -17,19 +33,29 @@ export function Home() {
 
       <S.HomeContent>
         <S.InputContainer>
-          <Input placeholder="Adicione uma nova tarefa" />
+          <Input
+            value={description}
+            placeholder="Adicione uma nova tarefa"
+            onChangeText={(text) => setDescription(text)}
+            onSubmitEditing={handleAddTask}
+            returnKeyType="send"
+          />
 
-          <Button>
+          <Button onPress={handleAddTask}>
             <S.TaskIcon />
           </Button>
         </S.InputContainer>
 
         <S.TaskContainer>
-          <Counter title="Criadas" counter={0} />
-          <Counter color="purple" title="Concluídas" counter={0} />
+          <Counter title="Criadas" counter={totalTasks} />
+          <Counter
+            color="purple"
+            title="Concluídas"
+            counter={totalConcludedTasks}
+          />
         </S.TaskContainer>
 
-        <TastList tasks={[]} />
+        <TastList />
       </S.HomeContent>
     </S.HomeContainer>
   )
